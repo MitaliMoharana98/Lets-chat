@@ -19,7 +19,7 @@ app.use(
     credentials: true,
   })
 );
-
+const __dirname = path.resolve();
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
@@ -34,7 +34,6 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to MongoDB
 const port = process.env.PORT || 3000;
-const __dirname = path.resolve();
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
   connectDB();
